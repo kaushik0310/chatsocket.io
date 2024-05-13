@@ -5,7 +5,7 @@ const accessChat = async (req, res) => {
   const { userId } = req.body;
 
   if (!userId) {
-    throw new Error("userId param not sent with request"); 
+    throw new Error("userId param not sent with request");
   }
 
   var isChat = await Chat.find({
@@ -59,16 +59,16 @@ const fetchChats = async (req, res) => {
           select: "name pic email",
         });
         res.send({
-          success:true,
-          results
-        })
+          success: true,
+          results,
+        });
       });
   } catch (error) {
     console.log(error);
     res.send({
-      success:false,
-      message:error.message
-    })
+      success: false,
+      message: error.message,
+    });
   }
 };
 
